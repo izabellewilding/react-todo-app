@@ -42,9 +42,21 @@ const AppHeader = () => {
   return (
     <div className="app-header">
       <MenuIcon className="app-header-menu-icon" />
-      <div className="app-header-content app-padding">
-        <h1 className="">Your</h1>
-        <h1 className="">Todos</h1>
+      <div className="app-header-content ">
+        <div className="app-header-title ">
+          <h1 className="">Your</h1>
+          <h1 className="">Todos</h1>
+        </div>
+        <div className="app-header-info-container ">
+          <div className="info-item">
+            <h3>24</h3>
+            <p className="subhead">Incomplete</p>
+          </div>
+          <div className="info-item ">
+            <h3>10</h3>
+            <p className="subhead">Complete</p>
+          </div>
+        </div>
       </div>
     </div>
   );

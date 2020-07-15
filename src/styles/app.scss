@@ -4,7 +4,7 @@
 
 .app-header {
   height: 30vh;
-  background: url(../images/silhouette-photo-of-a-mountain-during-sunset-114979.jpg);
+  background: url(../images/climb-2125148_1920.jpg);
   background-position: bottom;
   background-size: cover;
   position: relative;
@@ -17,8 +17,18 @@
   right: 0;
   left: 0;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header-title {
+  display: flex;
   flex-direction: column;
+  border-bottom: 3px #5e94fc solid;
   justify-content: center;
+  height: 98%;
+  width: 50%;
+  padding-left: 1rem;
 }
 
 .app-header-menu-icon {
@@ -30,6 +40,24 @@
   fill: white;
 }
 
+.app-header-info-container {
+  width: 45%;
+  background-color: rgba(7, 25, 64, 0.22);
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  p {
+    color: white;
+  }
+}
+
+.info-item {
+  text-align: right;
+}
+
+//todo list styling
 .todo-list {
   background: #e8e8e8;
   border-radius: 4px;
@@ -48,6 +76,8 @@
   align-items: center;
   justify-content: space-between;
 }
+
+// custom utility classes
 
 .app-padding {
   padding: 1rem;
