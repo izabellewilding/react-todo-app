@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./styles/css-reset.scss";
 import "./styles/app.scss";
 import "./styles/fonts.scss";
 import { ReactComponent as MenuIcon } from "./assets/menu.svg";
@@ -42,8 +43,8 @@ const AppHeader = () => {
     <div className="app-header">
       <MenuIcon className="app-header-menu-icon" />
       <div className="app-header-content app-padding">
-        <h1 className="">Your Todos</h1>
-        <h1 className="">Your Todos</h1>
+        <h1 className="">Your</h1>
+        <h1 className="">Todos</h1>
       </div>
     </div>
   );
