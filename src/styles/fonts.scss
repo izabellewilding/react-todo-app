@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "quicksand";
+  src: url("../fonts/Quicksand-Light.ttf");
+  font-display: swap;
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 34px;
+  color: white;
+  font-family: "quicksand";
+}
+h2 {
+  font-size: 22px;
+  line-height: 28px;
+}
+body {
+  font-size: 16px;
+}

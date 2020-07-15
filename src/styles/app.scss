@@ -1,0 +1,53 @@
+.app {
+  height: 100vh;
+}
+
+.app-header {
+  height: 30vh;
+  background: url(../images/silhouette-photo-of-a-mountain-during-sunset-114979.jpg);
+  background-position: bottom;
+  background-size: cover;
+  position: relative;
+}
+
+.app-header-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.app-header-menu-icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  height: 24px;
+  width: 24px;
+  fill: white;
+}
+
+.todo-list {
+  background: #e8e8e8;
+  border-radius: 4px;
+  padding: 5px;
+  max-width: 400px;
+}
+
+.todo {
+  background: #fff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  padding: 3px 10px;
+  font-size: 12px;
+  margin-bottom: 6px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-padding {
+  padding: 1rem;
+}
