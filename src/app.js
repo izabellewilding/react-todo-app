@@ -44,7 +44,7 @@ const TodoForm = ({ addTodo }) => {
 const AppHeader = () => {
   return (
     <div className="app-header">
-      <MenuIcon className="app-header-menu-icon" />
+      {/* <MenuIcon className="app-header-menu-icon" /> */}
       <div className="app-header-content ">
         <div className="app-header-title ">
           <h1 className="">Your</h1>
