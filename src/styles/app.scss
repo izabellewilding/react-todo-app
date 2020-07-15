@@ -5,7 +5,7 @@
 .app-header {
   height: 30vh;
   background: url(../images/climb-2125148_1920.jpg);
-  background-position: bottom;
+  background-position: center;
   background-size: cover;
   position: relative;
 }
@@ -42,7 +42,12 @@
 
 .app-header-info-container {
   width: 45%;
-  background-color: rgba(7, 25, 64, 0.22);
+  background: linear-gradient(
+    0deg,
+    rgba(7, 25, 64, 0.8949451606814601) 0%,
+    rgba(7, 25, 64, 0.7408835360316002) 35%,
+    rgba(7, 25, 64, 0.2338807349111519) 100%
+  );
   height: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -59,10 +64,13 @@
 
 //todo list styling
 .todo-list {
-  background: #e8e8e8;
   border-radius: 4px;
   padding: 5px;
   max-width: 400px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .todo {
@@ -77,8 +85,16 @@
   justify-content: space-between;
 }
 
+.input {
+  width: 100%;
+}
+
 // custom utility classes
 
 .app-padding {
   padding: 1rem;
+}
+
+.app-margin-bottom {
+  margin-bottom: 1.666rem;
 }

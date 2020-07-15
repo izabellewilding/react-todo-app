@@ -3,10 +3,11 @@ import "./styles/css-reset.scss";
 import "./styles/app.scss";
 import "./styles/fonts.scss";
 import { ReactComponent as MenuIcon } from "./assets/menu.svg";
+import TextField from "./components/text-field";
 
 const Todo = ({ todo, index, completeTodo, removeTodo }) => (
   <div
-    className="todo"
+    className="todo app-margin-bottom "
     style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
   >
     {todo.text}
@@ -27,12 +28,14 @@ const TodoForm = ({ addTodo }) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <TextField
+        placeholder="Add a new todo..."
         type="text"
-        className="input"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        className="input app-margin-bottom"
         required
+        fullwidth
+        onChange={(e) => setValue(e.target.value)}
       />
     </form>
   );
@@ -88,8 +91,9 @@ function App() {
   return (
     <div className="app">
       <AppHeader />
-      <TodoForm addTodo={addTodo} />
-      <div className="todo-list">
+      <div className="todo-list app-padding">
+        {" "}
+        <TodoForm addTodo={addTodo} />
         {todos.map((todo, index) => (
           <Todo
             key={index}
