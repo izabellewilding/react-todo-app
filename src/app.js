@@ -14,20 +14,25 @@ import IconButton from "./components/button";
 
 const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
   return (
-    <ListItem
-      className="todo app-margin-bottom "
-      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
-    >
-      {" "}
-      <Checkbox
-        checked={todo.isCompleted}
-        onChange={(e) => toggleCompleteTodo(index)}
+    <div className="todo">
+      <ListItem
+        className="todo-item app-margin-bottom "
+        style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+        ripple={false}
+        onClick={() => toggleCompleteTodo(index)}
+      >
+        {" "}
+        <Typography use="body1"> {todo.text}</Typography>
+        <ListItemMeta>
+          <Checkbox checked={todo.isCompleted} />
+        </ListItemMeta>
+      </ListItem>
+      <IconButton
+        icon={CloseIcon}
+        onClick={() => removeTodo(index)}
+        style={{ zIndex: 10 }}
       />
-      <Typography use="body1"> {todo.text}</Typography>
-      <ListItemMeta onClick={() => removeTodo(index)}>
-        <IconButton icon={CloseIcon} />
-      </ListItemMeta>
-    </ListItem>
+    </div>
   );
 };
 
