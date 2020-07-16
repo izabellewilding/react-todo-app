@@ -21,11 +21,11 @@ const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
     >
       {" "}
       <Checkbox
-        checked={checked}
-        onChange={(evt) => {
-          setChecked(!!evt.currentTarget.checked);
-          toggleCompleteTodo(index);
-        }}
+        checked={todo.isCompleted}
+        onChange={
+          (e) => toggleCompleteTodo(index)
+          // toggleCompleteTodo(index);
+        }
       />
       {todo.text}
       <ListItemMeta
