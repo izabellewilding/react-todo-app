@@ -1,22 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/css-reset.scss";
 import "./styles/app.scss";
 import "./styles/fonts.scss";
-import { ReactComponent as MenuIcon } from "./assets/menu.svg";
+import { ReactComponent as AppLogo } from "./assets/mobile-svg.svg";
+import CloseIcon from "./assets/close-24px.svg";
 import TextField from "./components/text-field";
+import Typography from "./components/typography";
+import { ListItem, ListItemMeta, List } from "./components/list";
+import Checkbox from "./components/checkbox";
 
-const Todo = ({ todo, index, completeTodo, removeTodo }) => (
-  <div
-    className="todo app-margin-bottom "
-    style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
-  >
-    {todo.text}
-    <div>
-      <button onClick={() => completeTodo(index)}>Complete</button>
-      <button onClick={() => removeTodo(index)}>X</button>
-    </div>
-  </div>
-);
+const Todo = ({ todo, index, completeTodo, removeTodo, isCompleted }) => {
+  const [checked, setChecked] = useState(false);
+
+  // useEffect(() => {
+  //   if (checked) {
+  //     completeTodo(index);
+  //   }
+  // });
+
+  return (
+    <ListItem
+      className="todo app-margin-bottom "
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+    >
+      {" "}
+      <Checkbox
+        checked={checked}
+        onChange={(evt) => {
+          setChecked(!!evt.currentTarget.checked);
+          completeTodo(index);
+        }}
+      />
+      {todo.text}
+      <ListItemMeta
+        icon={CloseIcon}
+        onClick={() => removeTodo(index)}
+      ></ListItemMeta>
+    </ListItem>
+  );
+};
+
 const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState("");
 
@@ -45,21 +68,13 @@ const AppHeader = () => {
   return (
     <div className="app-header">
       {/* <MenuIcon className="app-header-menu-icon" /> */}
-      <div className="app-header-content ">
-        <div className="app-header-title ">
-          <h1 className="">Your</h1>
-          <h1 className="">Todos</h1>
-        </div>
-        <div className="app-header-info-container ">
-          <div className="info-item">
-            <h3>24</h3>
-            <p className="subhead">Incomplete</p>
-          </div>
-          <div className="info-item ">
-            <h3>10</h3>
-            <p className="subhead">Complete</p>
-          </div>
-        </div>
+      <div className="app-header-title ">
+        <Typography use="headline2" className="">
+          Your Todos
+        </Typography>
+      </div>
+      <div className="app-image-container">
+        <AppLogo className="app-image" />
       </div>
     </div>
   );
@@ -91,18 +106,20 @@ function App() {
   return (
     <div className="app">
       <AppHeader />
-      <div className="todo-list app-padding">
+      <div className="todo-list">
         {" "}
         <TodoForm addTodo={addTodo} />
-        {todos.map((todo, index) => (
-          <Todo
-            key={index}
-            index={index}
-            todo={todo}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-          />
-        ))}{" "}
+        <List>
+          {todos.map((todo, index) => (
+            <Todo
+              key={index}
+              index={index}
+              todo={todo}
+              completeTodo={completeTodo}
+              removeTodo={removeTodo}
+            />
+          ))}{" "}
+        </List>
       </div>
     </div>
   );
