@@ -10,6 +10,7 @@ import TextField from "./components/text-field";
 import Typography from "./components/typography";
 import { ListItem, ListItemMeta, List } from "./components/list";
 import Checkbox from "./components/checkbox";
+import Add from "./assets/add-24px.svg";
 import IconButton from "./components/button";
 
 const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
@@ -52,10 +53,14 @@ const TodoForm = ({ addTodo }) => {
         type="text"
         value={value}
         className="input app-margin-bottom"
-        required
         fullwidth
+        required
         onChange={(e) => setValue(e.target.value)}
-      />
+      >
+        <div className="todo-add-button">
+          <IconButton icon={Add} onClick={handleSubmit} />
+        </div>
+      </TextField>
     </form>
   );
 };
@@ -95,6 +100,8 @@ function App() {
     }
     setTodos(newTodos);
   };
+
+  //need to refactor into slice
 
   const removeTodo = (index) => {
     const newTodos = [...todos];
