@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./styles/css-reset.scss";
 import "./styles/app.scss";
 import "./styles/fonts.scss";
-import { ReactComponent as AppLogo } from "./assets/mobile-svg.svg";
+import { ReactComponent as AppSmallImage } from "./assets/mobile-svg.svg";
+import { ReactComponent as AppLargeImage } from "./assets/undraw_add_post_64nu.svg";
+
 import CloseIcon from "./assets/close-24px.svg";
 import TextField from "./components/text-field";
 import Typography from "./components/typography";
@@ -73,9 +75,8 @@ const AppHeader = () => {
           Your Todos
         </Typography>
       </div>
-      <div className="app-image-container">
-        <AppLogo className="app-image" />
-      </div>
+      <AppSmallImage className="app-img" />
+      <AppLargeImage className="app-img-lg" />
     </div>
   );
 };
