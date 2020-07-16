@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./styles/css-reset.scss";
 import "./styles/app.scss";
 import "./styles/fonts.scss";
@@ -11,14 +11,8 @@ import Typography from "./components/typography";
 import { ListItem, ListItemMeta, List } from "./components/list";
 import Checkbox from "./components/checkbox";
 
-const Todo = ({ todo, index, toggleCompleteTodo, removeTodo, isCompleted }) => {
+const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
   const [checked, setChecked] = useState(false);
-
-  // useEffect(() => {
-  //   if (checked) {
-  //     completeTodo(index);
-  //   }
-  // });
 
   return (
     <ListItem
@@ -94,7 +88,6 @@ function App() {
 
   const toggleCompleteTodo = (index) => {
     const newTodos = [...todos];
-    console.log(newTodos[index]);
 
     if (newTodos[index].isCompleted) {
       newTodos[index].isCompleted = false;
