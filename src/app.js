@@ -12,8 +12,6 @@ import { ListItem, ListItemMeta, List } from "./components/list";
 import Checkbox from "./components/checkbox";
 
 const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
-  const [checked, setChecked] = useState(false);
-
   return (
     <ListItem
       className="todo app-margin-bottom "
@@ -22,12 +20,9 @@ const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
       {" "}
       <Checkbox
         checked={todo.isCompleted}
-        onChange={
-          (e) => toggleCompleteTodo(index)
-          // toggleCompleteTodo(index);
-        }
+        onChange={(e) => toggleCompleteTodo(index)}
       />
-      {todo.text}
+      <Typography use="body1"> {todo.text}</Typography>
       <ListItemMeta
         icon={CloseIcon}
         onClick={() => removeTodo(index)}
@@ -63,9 +58,8 @@ const TodoForm = ({ addTodo }) => {
 const AppHeader = () => {
   return (
     <div className="app-header">
-      {/* <MenuIcon className="app-header-menu-icon" /> */}
       <div className="app-header-title ">
-        <Typography use="headline2" className="">
+        <Typography use="headline2" className="DM-sans">
           Your Todos
         </Typography>
       </div>
