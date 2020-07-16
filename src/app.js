@@ -10,6 +10,7 @@ import TextField from "./components/text-field";
 import Typography from "./components/typography";
 import { ListItem, ListItemMeta, List } from "./components/list";
 import Checkbox from "./components/checkbox";
+import IconButton from "./components/button";
 
 const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
   return (
@@ -23,10 +24,9 @@ const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
         onChange={(e) => toggleCompleteTodo(index)}
       />
       <Typography use="body1"> {todo.text}</Typography>
-      <ListItemMeta
-        icon={CloseIcon}
-        onClick={() => removeTodo(index)}
-      ></ListItemMeta>
+      <ListItemMeta onClick={() => removeTodo(index)}>
+        <IconButton icon={CloseIcon} />
+      </ListItemMeta>
     </ListItem>
   );
 };
@@ -104,7 +104,7 @@ function App() {
         <div className="todo-list">
           {" "}
           <TodoForm addTodo={addTodo} />
-          <List>
+          <List nonInteractive={true}>
             {todos.map((todo, index) => (
               <Todo
                 key={index}

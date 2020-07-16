@@ -88,16 +88,17 @@
 
 // custom utility classes
 
-.app-padding {
-  padding: 1rem;
-}
-
 .app-margin-bottom {
   margin-bottom: 1.666rem;
 }
 
-//mdc overrides
+//MDC overrides
 
 .mdc-list-item {
   border-radius: 50px;
+}
+
+:root {
+  --mdc-typography-headline2-line-height: 61px;
+  --mdc-typography-headline2-font-family: "DM-sans";
 }
