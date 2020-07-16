@@ -105,7 +105,7 @@ form {
 
 :root {
   --mdc-typography-headline2-line-height: 61px;
-  --mdc-typography-headline2-font-family: "DM-sans";
+  --mdc-typography-headline2-font-family: "DM-sans", sans-serif;
 }
 
 .todo-add-button .mdc-icon-button {

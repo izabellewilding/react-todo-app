@@ -81,8 +81,8 @@ const AppHeader = () => {
 function App() {
   const [todos, setTodos] = useState([
     { text: "Learn about React", isCompleted: false },
-    { text: "Meet friend for lunch", isCompleted: false },
-    { text: "Build really cool todo app", isCompleted: false },
+    { text: "Write a blog post", isCompleted: false },
+    { text: "Water the garden", isCompleted: false },
   ]);
 
   const addTodo = (text) => {
