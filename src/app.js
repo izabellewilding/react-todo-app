@@ -9,7 +9,7 @@ import Typography from "./components/typography";
 import { ListItem, ListItemMeta, List } from "./components/list";
 import Checkbox from "./components/checkbox";
 
-const Todo = ({ todo, index, completeTodo, removeTodo, isCompleted }) => {
+const Todo = ({ todo, index, toggleCompleteTodo, removeTodo, isCompleted }) => {
   const [checked, setChecked] = useState(false);
 
   // useEffect(() => {
@@ -28,7 +28,7 @@ const Todo = ({ todo, index, completeTodo, removeTodo, isCompleted }) => {
         checked={checked}
         onChange={(evt) => {
           setChecked(!!evt.currentTarget.checked);
-          completeTodo(index);
+          toggleCompleteTodo(index);
         }}
       />
       {todo.text}
@@ -91,9 +91,15 @@ function App() {
     setTodos(newTodos);
   };
 
-  const completeTodo = (index) => {
+  const toggleCompleteTodo = (index) => {
     const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
+    console.log(newTodos[index]);
+
+    if (newTodos[index].isCompleted) {
+      newTodos[index].isCompleted = false;
+    } else {
+      newTodos[index].isCompleted = true;
+    }
     setTodos(newTodos);
   };
 
@@ -106,20 +112,22 @@ function App() {
   return (
     <div className="app">
       <AppHeader />
-      <div className="todo-list">
-        {" "}
-        <TodoForm addTodo={addTodo} />
-        <List>
-          {todos.map((todo, index) => (
-            <Todo
-              key={index}
-              index={index}
-              todo={todo}
-              completeTodo={completeTodo}
-              removeTodo={removeTodo}
-            />
-          ))}{" "}
-        </List>
+      <div className="app-main">
+        <div className="todo-list">
+          {" "}
+          <TodoForm addTodo={addTodo} />
+          <List>
+            {todos.map((todo, index) => (
+              <Todo
+                key={index}
+                index={index}
+                todo={todo}
+                toggleCompleteTodo={toggleCompleteTodo}
+                removeTodo={removeTodo}
+              />
+            ))}{" "}
+          </List>
+        </div>
       </div>
     </div>
   );
