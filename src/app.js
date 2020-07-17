@@ -60,7 +60,7 @@ const TodoForm = ({ addTodo }) => {
         onChange={(e) => setValue(e.target.value)}
       >
         <div className="todo-add-button">
-          <IconButton icon={Add} onClick={handleSubmit} />
+          <IconButton icon={Add} onClick={handleSubmit} type="submit" />
         </div>
       </TextField>
     </form>
@@ -114,6 +114,7 @@ function App() {
       newTodos[index].isCompleted = true;
     }
     setTodos(newTodos);
+    window.localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
   //need to refactor into slice
@@ -122,7 +123,7 @@ function App() {
     const currentTodos = [...todos];
     const filteredTodos = currentTodos.filter((todo, i) => i !== index);
     setTodos(filteredTodos);
-    window.localStorage.setItem(todos, JSON.stringify(filteredTodos));
+    window.localStorage.setItem("todos", JSON.stringify(filteredTodos));
   };
 
   return (
