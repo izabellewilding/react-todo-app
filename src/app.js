@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/css-reset.scss";
 import "./styles/app.scss";
 import "./styles/fonts.scss";
@@ -85,10 +85,24 @@ function App() {
     { text: "Water the garden", isCompleted: false },
   ]);
 
+  useEffect(() => {
+    function loadStoredTodos() {
+      const storedTodos = window.localStorage.getItem(todos);
+      try {
+        return JSON.parse(storedTodos);
+      } catch (error) {}
+    }
+    if (loadStoredTodos()) {
+      setTodos(loadStoredTodos());
+    }
+  }, [todos]);
+
   const addTodo = (text) => {
     const newTodos = [{ text }, ...todos];
     setTodos(newTodos);
+    window.localStorage.setItem(todos, JSON.stringify(newTodos));
   };
+  console.warn("local", window.localStorage);
 
   const toggleCompleteTodo = (index) => {
     const newTodos = [...todos];
@@ -108,7 +122,7 @@ function App() {
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
-
+  console.log("todos", todos);
   return (
     <div className="app">
       <AppHeader />
