@@ -30,7 +30,11 @@ const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
           <Checkbox checked={todo.isCompleted} />
         </ListItemMeta>
       </ListItem>
-      <IconButton icon={CloseIcon} onClick={() => removeTodo(index)} />
+      <IconButton
+        icon={CloseIcon}
+        name="remove todo"
+        onClick={() => removeTodo(index)}
+      />
     </div>
   );
 };
@@ -50,13 +54,19 @@ const TodoForm = ({ addTodo }) => {
         placeholder="Add a new todo..."
         type="text"
         value={value}
+        aria-label="add new to do"
         className="input app-margin-bottom"
         fullwidth
         required
         onChange={(e) => setValue(e.target.value)}
       >
         <div className="todo-add-button">
-          <IconButton icon={Add} onClick={handleSubmit} type="submit" />
+          <IconButton
+            icon={Add}
+            name="add to do"
+            onClick={handleSubmit}
+            type="submit"
+          />
         </div>
       </TextField>
     </form>
@@ -71,8 +81,14 @@ const AppHeader = () => {
           Your Todos
         </Typography>
       </div>
-      <AppSmallImage className="app-img" />
-      <AppLargeImage className="app-img-lg" />
+      <AppSmallImage
+        className="app-img"
+        alt="illustration of person adding a todo"
+      />
+      <AppLargeImage
+        className="app-img-lg "
+        alt="illustration of person adding a todo"
+      />
     </div>
   );
 };
@@ -128,8 +144,8 @@ function App() {
       <div className="app-main">
         <div className="todo-list">
           {" "}
-          <TodoForm addTodo={addTodo} />
-          <List nonInteractive={true}>
+          <TodoForm addTodo={addTodo} aria-label="to do input" />
+          <List nonInteractive={true} aria-label="a list of your to dos">
             {todos.map((todo, index) => (
               <Todo
                 key={index}
@@ -141,7 +157,12 @@ function App() {
             ))}{" "}
           </List>
         </div>
-        <a href="https://www.izzywilding.com/" unelevated className="credits">
+        <a
+          href="https://www.izzywilding.com/"
+          aria-label="link to app creators website"
+          unelevated
+          className="credits"
+        >
           <Typography use="body2">
             {" "}
             Made by Izabelle <HeartIcon />

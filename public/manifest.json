@@ -3,17 +3,17 @@
   "name": "Tdolist",
   "icons": [
     {
-      "src": "todo-log.png",
+      "src": "todo-logo.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "todo-log.png",
+      "src": "todo-logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "todo-log.png",
+      "src": "todo-logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
