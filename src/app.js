@@ -161,6 +161,7 @@ function App() {
           href="https://www.izzywilding.com/"
           aria-label="link to app creators website"
           unelevated
+          target="__blank"
           className="credits"
         >
           <Typography use="body2">
