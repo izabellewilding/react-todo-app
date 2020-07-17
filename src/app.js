@@ -30,11 +30,7 @@ const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
           <Checkbox checked={todo.isCompleted} />
         </ListItemMeta>
       </ListItem>
-      <IconButton
-        icon={CloseIcon}
-        onClick={() => removeTodo(index)}
-        style={{ zIndex: 10 }}
-      />
+      <IconButton icon={CloseIcon} onClick={() => removeTodo(index)} />
     </div>
   );
 };
