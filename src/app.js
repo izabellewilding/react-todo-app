@@ -13,7 +13,7 @@ import Checkbox from "./components/checkbox";
 import Add from "./assets/add-24px.svg";
 import IconButton from "./components/button";
 
-const Todo = ({ todo, key, index, toggleCompleteTodo, removeTodo }) => {
+const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
   return (
     <div className="todo">
       <ListItem
