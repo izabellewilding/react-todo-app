@@ -10,8 +10,10 @@ import TextField from "./components/text-field";
 import Typography from "./components/typography";
 import { ListItem, ListItemMeta, List } from "./components/list";
 import Checkbox from "./components/checkbox";
+import { ReactComponent as HeartIcon } from "./assets/heart-outlined.svg";
+
 import Add from "./assets/add-24px.svg";
-import IconButton from "./components/button";
+import { IconButton } from "./components/button";
 
 const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
   return (
@@ -142,6 +144,12 @@ function App() {
             ))}{" "}
           </List>
         </div>
+        <a href="https://www.izzywilding.com/" unelevated className="credits">
+          <Typography use="body2">
+            {" "}
+            Made by Izabelle <HeartIcon />
+          </Typography>
+        </a>
       </div>
     </div>
   );

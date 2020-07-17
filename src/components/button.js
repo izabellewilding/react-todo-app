@@ -1,4 +1,5 @@
-import { IconButton } from "@rmwc/icon-button";
 import "@rmwc/icon-button/styles";
+import "@rmwc/button/styles";
 
-export default IconButton;
+export * from "@rmwc/icon-button";
+export * from "@rmwc/button";

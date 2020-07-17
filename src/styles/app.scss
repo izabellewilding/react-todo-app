@@ -91,6 +91,29 @@ form {
   bottom: 7px;
 }
 
+.credits {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  padding: 0.75rem;
+  padding-left: 1.25rem;
+
+  color: #cfcfcf;
+  font-family: "DM-sans" !important;
+  text-align: center;
+  text-decoration: none;
+
+  span {
+    display: flex;
+    align-items: center;
+
+    svg {
+      padding-left: 0.25rem;
+    }
+  }
+}
+
 // custom utility classes
 
 .app-margin-bottom {
