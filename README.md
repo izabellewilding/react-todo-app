@@ -5,14 +5,15 @@
 <h1 align="center">
 Tdolist</h1>
 
-<p align="center">A modern todolist with a simple, attractive UI. </p>
+<p align="center">A modern to-do app built with React </p>
 
 
 ![Site-screenshot](/public/screenshot.JPG)
 
 ## Built With
 
-* [React](https://www.gatsbyjs.org/) -  JavaScript Library
+* [React](https://www.gatsbyjs.org/) 
+* [RMWC](https://rmwc.io/) - React Material Design UI Components
 
 
 
