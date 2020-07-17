@@ -13,7 +13,7 @@ import Checkbox from "./components/checkbox";
 import Add from "./assets/add-24px.svg";
 import IconButton from "./components/button";
 
-const Todo = ({ todo, index, toggleCompleteTodo, removeTodo }) => {
+const Todo = ({ todo, key, index, toggleCompleteTodo, removeTodo }) => {
   return (
     <div className="todo">
       <ListItem
@@ -87,7 +87,7 @@ function App() {
 
   useEffect(() => {
     function loadStoredTodos() {
-      const storedTodos = window.localStorage.getItem(todos);
+      const storedTodos = window.localStorage.getItem("todos");
       try {
         return JSON.parse(storedTodos);
       } catch (error) {}
@@ -95,14 +95,13 @@ function App() {
     if (loadStoredTodos()) {
       setTodos(loadStoredTodos());
     }
-  }, [todos]);
+  }, []);
 
   const addTodo = (text) => {
     const newTodos = [{ text }, ...todos];
     setTodos(newTodos);
-    window.localStorage.setItem(todos, JSON.stringify(newTodos));
+    window.localStorage.setItem("todos", JSON.stringify(newTodos));
   };
-  console.warn("local", window.localStorage);
 
   const toggleCompleteTodo = (index) => {
     const newTodos = [...todos];
@@ -118,11 +117,12 @@ function App() {
   //need to refactor into slice
 
   const removeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+    const currentTodos = [...todos];
+    const filteredTodos = currentTodos.filter((todo, i) => i !== index);
+    setTodos(filteredTodos);
+    window.localStorage.setItem(todos, JSON.stringify(filteredTodos));
   };
-  console.log("todos", todos);
+
   return (
     <div className="app">
       <AppHeader />
