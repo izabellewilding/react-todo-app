@@ -20,6 +20,8 @@ Tdolist</h1>
 ## Features
 
 * React Hooks todolist
+* Progressive Web App
+* Page load speed optimised
 * Modern user interface 
 * Prettier Code Styling
 
